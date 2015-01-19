@@ -7,7 +7,7 @@ Simple [CollectD](https://github.com/collectd/collectd) instance running within 
 ## Setup 
 
 1. [Install Docker](http://docs.docker.com/installation/mac/).
-2. Pull the latest image from the Docker [registry](https://registry.hub.docker.com/u/revett/collectd-docker/):
+2. Pull the latest image from the Docker [registry](https://registry.hub.docker.com/u/revett/collectd-carbon/):
 
 ```
 docker pull revett/collectd-docker
