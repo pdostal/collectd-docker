@@ -17,9 +17,9 @@ LoadPlugin write_graphite
 </Plugin>
 
 <Plugin "write_graphite">
- <Node "bbc">
-   Host "{{ CARBON_HOST }}"
-   Port "{{ CARBON_PORT }}"
+ <Node "endpoint">
+   Host "{{ EP_HOST }}"
+   Port "{{ EP_PORT }}"
    Protocol "tcp"
    LogSendErrors true
    EscapeCharacter "_"
