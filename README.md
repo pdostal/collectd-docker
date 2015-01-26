@@ -1,8 +1,11 @@
 # collectd-docker
 
-Simple [CollectD](https://github.com/collectd/collectd) instance running within a [Docker](https://github.com/docker/docker) container. It sends CPU statistics every 10 seconds to a specified [Carbon](https://github.com/graphite-project/carbon) endpoint (see below), which will then be consumed by [Graphite](https://github.com/graphite-project/graphite-web). 
+Simple [CollectD](https://github.com/collectd/collectd) instance running within a [Docker](https://github.com/docker/docker) container. It sends CPU statistics every 10 seconds to a specified endpoint (see below), which can accept traffic from the [write_graphite](https://collectd.org/wiki/index.php/Plugin:Write_Graphite) plugin.
 
-**Note** - the primary purpose for this container is to test the [Ruby CollectD Client](https://github.com/revett/collectd) locally.
+**Note** 
+
+* The primary purpose of this container is to test the [Ruby CollectD](https://github.com/revett/collectd) gem locally.
+* The CollectD instance also accepts traffic from StatsD clients on `localhost:8125`.
 
 ## Setup 
 
@@ -18,7 +21,7 @@ docker pull revett/collectd-docker
 Start the container:
 
 ```
-docker run -d -e HOST_NAME=example -e CARBON_HOST=carbon.example.com -e CARBON_PORT=2003 revett/collectd-docker
+docker run -d -e HOST_NAME=test -e EP_HOST=example.com -e EP_PORT=2003 revett/collectd-docker
 ```
 
 ### Environment Variables
@@ -27,14 +30,14 @@ You **must** replace each of the following environment variables within the `doc
 
 * `HOST_NAME`
   - Used to create the namespace in Carbon/Graphite.
-* `CARBON_HOST`
-  - Carbon IP or hostname
-* `CARBON_PORT`
-  - Carbon port.
+* `EP_HOST`
+  - IP or hostname for the endpoint.
+* `EP_PORT`
+  - Port for the endpoint.
   
-### Carbon/Graphite Namespace
+### Namespace
 
-When viewing metrics within Graphite, they will come under the following namespace:
+When viewing the metrics within [Grafana](http://grafana.org/) for example, they will come under the following namespace:
 
 ```
 local.debug.{{HOST_NAME}}.cpu-*
