@@ -13,7 +13,7 @@ Simple [CollectD](https://github.com/collectd/collectd) instance running within 
 2. Pull the latest image from the Docker [registry](https://registry.hub.docker.com/u/revett/collectd-carbon/):
 
 ```
-docker pull revett/collectd-docker
+docker pull revett/collectd
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ docker pull revett/collectd-docker
 Start the container:
 
 ```
-docker run -d -e HOST_NAME=test -e EP_HOST=example.com -e EP_PORT=2003 revett/collectd-docker
+docker run -d -e HOST_NAME=test -e EP_HOST=example.com -e EP_PORT=2003 revett/collectd
 ```
 
 ### Environment Variables
