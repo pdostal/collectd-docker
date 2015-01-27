@@ -15,6 +15,4 @@ ADD           start /usr/bin/start
 RUN           pip install envtpl
 RUN           chmod +x /usr/bin/start
 
-EXPOSE        8125
-
 CMD           start
