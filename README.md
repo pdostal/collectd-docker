@@ -5,7 +5,7 @@ Simple [CollectD](https://github.com/collectd/collectd) instance running within 
 **Note** 
 
 * The primary purpose of this container is to test the [Ruby CollectD](https://github.com/revett/collectd) gem locally.
-* The CollectD instance also accepts traffic from StatsD clients on `localhost:8125`.
+* The CollectD instance also accepts UDP traffic from StatsD clients on port `8125`.
 
 ## Setup 
 
@@ -21,7 +21,7 @@ docker pull revett/collectd
 Start the container:
 
 ```
-docker run -d -e HOST_NAME=test -e EP_HOST=example.com -e EP_PORT=2003 revett/collectd
+docker run -d -e HOST_NAME=test -e EP_HOST=example.com -e EP_PORT=2003 -p 8125:8125/udp revett/collectd
 ```
 
 ### Environment Variables
