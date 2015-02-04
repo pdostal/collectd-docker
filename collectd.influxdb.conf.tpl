@@ -17,6 +17,6 @@ LoadPlugin network
 </Plugin>
 
 <Plugin network>
-  Server "collectd-link" "8125"
+  Server "{{ EP_HOST }}" "{{ EP_PORT | default(25826) }}"
   ReportStats true
 </Plugin>
