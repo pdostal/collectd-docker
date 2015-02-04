@@ -19,7 +19,7 @@ LoadPlugin write_graphite
 <Plugin "write_graphite">
  <Node "endpoint">
    Host "{{ EP_HOST }}"
-   Port "{{ EP_PORT | default(2003) }}"
+   Port "{{ EP_PORT }}"
    Protocol "tcp"
    LogSendErrors true
    EscapeCharacter "_"

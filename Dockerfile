@@ -9,7 +9,8 @@ RUN           apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 232E4010A
 RUN           apt-get -y update
 RUN           apt-get -y install collectd curl vim python-pip
 
-ADD           collectd.conf.tpl /etc/collectd/collectd.conf.tpl
+ADD           configs/ /etc/collectd/configs
+
 ADD           start /usr/bin/start
 
 EXPOSE        8125
