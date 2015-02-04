@@ -1,4 +1,4 @@
-Hostname "{{ HOST_NAME }}"
+Hostname "{{ HOST_NAME | default("collectd-docker") }}"
 
 FQDNLookup false
 Interval 10
@@ -19,10 +19,10 @@ LoadPlugin write_graphite
 <Plugin "write_graphite">
  <Node "endpoint">
    Host "{{ EP_HOST }}"
-   Port "{{ EP_PORT }}"
+   Port "{{ EP_PORT | default(2003) }}"
    Protocol "tcp"
    LogSendErrors true
    EscapeCharacter "_"
-   Prefix "local.debug."
+   Prefix "{{ PREFIX | default("local.debug") }}"
  </Node>
 </Plugin>

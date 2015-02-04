@@ -12,6 +12,8 @@ RUN           apt-get -y install collectd curl vim python-pip
 ADD           collectd.conf.tpl /etc/collectd/collectd.conf.tpl
 ADD           start /usr/bin/start
 
+EXPOSE        8125
+
 RUN           pip install envtpl
 RUN           chmod +x /usr/bin/start
 

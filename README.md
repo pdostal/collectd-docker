@@ -2,12 +2,12 @@
 
 Simple [CollectD](https://github.com/collectd/collectd) instance running within a [Docker](https://github.com/docker/docker) container. It sends CPU statistics every 10 seconds to a specified endpoint (see below), which can accept traffic from the [write_graphite](https://collectd.org/wiki/index.php/Plugin:Write_Graphite) plugin.
 
-**Note** 
+**Note**
 
 * The primary purpose of this container is to test the [Ruby CollectD](https://github.com/revett/collectd) gem locally.
-* The CollectD instance also accepts traffic from StatsD clients on `localhost:8125`.
+* The CollectD instance also accepts traffic from [StatsD](https://github.com/etsy/statsd/) clients on `localhost:8125`.
 
-## Setup 
+## Setup
 
 1. [Install Docker](http://docs.docker.com/installation/mac/).
 2. Pull the latest image from the Docker [registry](https://registry.hub.docker.com/u/revett/collectd-carbon/):
@@ -21,24 +21,31 @@ docker pull revett/collectd
 Start the container:
 
 ```
-docker run -d -e HOST_NAME=test -e EP_HOST=example.com -e EP_PORT=2003 revett/collectd
+docker run -d -e EP_HOST=example.com revett/collectd
 ```
 
 ### Environment Variables
 
-You **must** replace each of the following environment variables within the `docker run` command shown above:
+You **must** replace the required environment variables within the `docker run` command shown above:
 
-* `HOST_NAME`
-  - Used to create the namespace in Carbon/Graphite.
+**Required**:
+
 * `EP_HOST`
   - IP or hostname for the endpoint.
-* `EP_PORT`
+
+**Optional**:
+
+* `HOST_NAME`, default: `collectd-docker`
+  - Used to create the namespace in Graphite (endpoint).
+* `EP_PORT`, default: `2003`
   - Port for the endpoint.
-  
+* `PREFIX`, default: `local.debug`
+  - Used to create the namespace in Graphite (endpoint)
+
 ### Namespace
 
 When viewing the metrics within [Grafana](http://grafana.org/) for example, they will come under the following namespace:
 
 ```
-local.debug.{{HOST_NAME}}.cpu-*
+{{PREFIX}}.{{HOST_NAME}}.cpu-*
 ```
