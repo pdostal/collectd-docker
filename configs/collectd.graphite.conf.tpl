@@ -23,6 +23,6 @@ LoadPlugin write_graphite
    Protocol "tcp"
    LogSendErrors true
    EscapeCharacter "_"
-   Prefix "{{ PREFIX | default("local.debug") }}"
+   Prefix "{{ PREFIX | default("local.debug.") }}"
  </Node>
 </Plugin>
