@@ -2,7 +2,7 @@
 
 [![tag.jpg](https://img.shields.io/github/release/revett/collectd-docker.svg)](https://github.com/revett/collectd-docker/releases) [![docker.jpg](https://img.shields.io/badge/docker-hub-green.svg)](https://registry.hub.docker.com/u/revett/collectd/)
 
-Simple [CollectD](https://github.com/collectd/collectd) instance running within a [Docker](https://github.com/docker/docker) container. It sends CPU statistics every 10 seconds to a specified endpoint, either [Graphite](https://github.com/graphite-project), [Riemann](riemann.io) or [InfluxDB](https://github.com/influxdb/influxdb).
+Simple [CollectD](https://github.com/collectd/collectd) instance running within a [Docker](https://github.com/docker/docker) container. It sends CPU statistics every 10 seconds to a specified endpoint, either [Graphite](https://github.com/graphite-project), [Riemann](http://riemann.io/) or [InfluxDB](https://github.com/influxdb/influxdb).
 
 **Note** - also accepts traffic from [StatsD](https://github.com/etsy/statsd/) clients on `localhost:8125`.
 
