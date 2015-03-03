@@ -20,7 +20,7 @@ docker pull revett/collectd
 Start the container:
 
 ```
-docker run -d -e CONFIG_TYPE=influxdb -e EP_HOST=example.com -e EP_PORT 2003 revett/collectd
+docker run -d -e CONFIG_TYPE=influxdb -e EP_HOST=example.com -e EP_PORT=2003 revett/collectd
 ```
 
 ### Environment Variables
