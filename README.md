@@ -58,3 +58,9 @@ When viewing the metrics within [Grafana](http://grafana.org/) via Graphite for 
 ```
 {{PREFIX}}.{{HOST_NAME}}.cpu-*
 ```
+
+## Licence
+
+[The MIT License (MIT)](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2015 [Charlie Revett](http://twitter.com/charlierevett)
