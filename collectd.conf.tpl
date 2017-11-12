@@ -5,9 +5,10 @@ Interval 10
 Timeout 2
 ReadThreads 5
 
-LoadPlugin statsd
 LoadPlugin cpu
-LoadPlugin write_riemann
+LoadPlugin nginx
+LoadPlugin statsd
+LoadPlugin network
 
 <Plugin statsd>
   Host "::"
@@ -16,12 +17,11 @@ LoadPlugin write_riemann
   TimerPercentile 90.0
 </Plugin>
 
-<Plugin "write_riemann">
- <Node "service">
-   Host "{{ EP_HOST }}"
-   Port "{{ EP_PORT }}"
-   Protocol UDP
-   StoreRates true
-   AlwaysAppendDS false
- </Node>
+<Plugin "nginx">
+    URL "{{ NGINX_URL }}"
+</Plugin>
+
+<Plugin network>
+  Server "{{ EP_HOST }}" "{{ EP_PORT }}"
+  ReportStats true
 </Plugin>
